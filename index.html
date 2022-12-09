@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Previewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/marked@3.0.7/marked.min.js"></script>
+    <script>
+        function updatePreview(){
+            let previewElement = document.getElementById("preview");
+            let editorValue = document.getElementById("editor").value;
+            let markedUpHTML = marked(editorValue);
+            previewElement.innerHTML  = markedUpHTML;
+        }
+
+        function setDefult() {
+            let defultText = `\
+# Mayura Alahakoon (andrew) :)
+## a markdown previewer for freecodecamp frontend libraries certification
+[Whoami ? go to my web site](https://www.mayura-alahakoon.github.io).
+
+<dl>
+    <dt>My todo list in every day</dt>
+    <dd> wakeup</dd>
+    <dd> eat</dd>
+    <dd> <em>code</em></dd>
+    <dd> *sleep* </dd>
+    <dd> **repeat** </dd>
+</dl>
+
+\`WELCOME\`
+
+\`\`\`
+function todoList(){
+    return console.log("wake, eat, sleep")
+}
+
+\`\`\`
+
+> Self-taught programmer
+- Open-source Lover
+
+![profile photo](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.BZJdAzC4d-VeKClIfHip-wHaFj%26pid%3DApi&f=1&ipt=3db55c887fef3b1dfbd5f420115d1ba321393d9506b52e2f286ae35fd03700cd&ipo=images)
+
+**Have a nice day!** `;
+
+        let editorField = document.getElementById("editor");
+        let previewElement = document.getElementById("preview");
+        editorField.value = defultText;
+        previewElement.innerHTML = marked(defultText)
+
+        }
+    </script>
+</head> 
+<body onload="setDefult()">
+    <div class="container-fluid">
+     <div class="row">
+        <div class="col text-center bg-opacity- 30 my-3">
+            <h1>Markdown Previewer</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 bg-primary d-flex flex-column ">
+         <h2 class="text-white text-center my-3">Editor</h2>
+          <div class="form-group flex-grow-1 d-flex flex-column">
+            <textarea id="editor" onkeyup="updatePreview()" class="form-control flex-grow-1"></textarea>
+          </div>
+        </div>
+    <div class="col-6 bg-danger">
+        <h2 class="text-white text-center my-3">Markdown Previewer</h2>
+        <div id="preview"></div>
+    </div>
+    </div>
+
+    </div>
+    
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
